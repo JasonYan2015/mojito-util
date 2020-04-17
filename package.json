@@ -1,0 +1,43 @@
+{
+  "name": "mojito-util",
+  "version": "1.0.0",
+  "description": "🔧 A FE util to save time.Code for life.",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonYan2015/mojito-util.git"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "author": "Yan Zijun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasonYan2015/mojito-util/issues"
+  },
+  "homepage": "https://github.com/JasonYan2015/mojito-util#readme",
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.22.0",
+    "@babel/core": "^7.5.5",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "typescript": "^3.8.3"
+  }
+}
