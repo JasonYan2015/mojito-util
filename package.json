@@ -2,7 +2,8 @@
   "name": "mojito-util",
   "version": "1.0.0",
   "description": "🔧 A FE util to save time.Code for life.",
-  "main": "index.js",
+  "main": "dist/MojitoUtils.cjs.js",
+  "module": "dist/MojitoUtils.esm.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
