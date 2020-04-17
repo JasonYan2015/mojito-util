@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": "../",
+        "experimentalDecorators": true,
+        "lib": [
+            "dom",
+            "es2015"
+        ],
+        "paths":{
+            "@/*": ["src/*"]
+        }
+    },
+}
