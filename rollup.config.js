@@ -4,6 +4,7 @@ import replace from 'rollup-plugin-replace'
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import { eslint } from 'rollup-plugin-eslint'
+import postcss from 'rollup-plugin-postcss'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 
 import pkg from './package.json'
@@ -20,6 +21,11 @@ const banner =
 
 const extensions = [...DEFAULT_EXTENSIONS, 'ts', 'tsx']
 const plugins = [
+    postcss({
+        inject: false,
+        extract: true,
+        extensions: ['.css'],
+    }),
     json(),
     typescript({
         cacheRoot: `${require('os').tmpdir()}/.rpt2_cache`,
