@@ -39,7 +39,7 @@ export const isIOS = (): boolean => {
  */
 export const getQueryFromUrl = (url: string = window.location.href): object => {
     const reg = /(?:[?&])([^=]+)=([^&]*)/g
-    const params = {}
+    const params: {[key: string]: string} = {}
 
     let temp
     while ((temp = reg.exec(url)) !== null) {

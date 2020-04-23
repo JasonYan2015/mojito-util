@@ -1,7 +1,10 @@
 import { generateUuid } from './index'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyFunction = (...param: any[]) => void
+type Tuple = [string, AnyFunction]
 interface Events {
-    (...param: any[]): void
+    [key: string]: Tuple[]
 }
 
 /**
@@ -16,10 +19,10 @@ let _events: Events = {}
  * @param {function} callback
  * @returns {string} eventid 用于标记当前event的id，在off时使用
  */
-function on (name: string, callback: void): string {
+function on (name: string, callback: AnyFunction): string {
     const uuid = generateUuid()
-    const tuple = [uuid, callback]
-    const callbacks = _events[name]
+    const tuple: Tuple = [uuid, callback]
+    const callbacks: Tuple[] | undefined = _events[name]
     if (Array.isArray(callbacks)) {
         callbacks.push(tuple)
     } else {
@@ -41,7 +44,7 @@ function off (name: string, eventid: string) {
     }
     const callbacks = _events[name]
     if (Array.isArray(callbacks)) {
-        _events[name] = callbacks.filter((tuple) => {
+        _events[name] = callbacks.filter(function (tuple) {
             return tuple[0] !== eventid
         })
     }
@@ -52,7 +55,8 @@ function off (name: string, eventid: string) {
  * @param {string} name
  * @param {*} data
  */
-function trigger (name: string, data): void {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function trigger (name: string, data: any): void {
     const callbacks = _events[name]
     if (Array.isArray(callbacks)) {
         callbacks.map(function (tuple) {

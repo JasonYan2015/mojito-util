@@ -6,7 +6,7 @@ export * from './type'
  * 延时等待
  * @param {number} duration 延时时间
  */
-export function delay (duration: number): Promise {
+export function delay (duration: number): Promise<void> {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve()
